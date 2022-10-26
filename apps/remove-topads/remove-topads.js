@@ -10,6 +10,9 @@
 // @run-at       document-end
 // @icon         https://ecs7.tokopedia.net/assets-tokopedia-lite/prod/icon144.png
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/preschian/tokped-mod/main/apps/remove-topads/remove-topads.js
+// @downloadURL  https://raw.githubusercontent.com/preschian/tokped-mod/main/apps/remove-topads/remove-topads.js
+// @supportURL   https://github.com/preschian/tokped-mod/issues
 // ==/UserScript==
 
 (function () {
