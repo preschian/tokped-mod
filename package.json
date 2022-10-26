@@ -1,0 +1,23 @@
+{
+  "name": "tokped-mod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preschian/tokped-mod.git"
+  },
+  "keywords": [
+    "tokopedia",
+    "tokped"
+  ],
+  "author": "Preschian F.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/preschian/tokped-mod/issues"
+  },
+  "homepage": "https://github.com/preschian/tokped-mod#readme"
+}
