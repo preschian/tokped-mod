@@ -1,38 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue';
 
-defineProps<{ msg: string }>()
+const keywords = ref('');
+const tokpedURL = computed(() => {
+  const url = new URL('https://www.tokopedia.com/search');
+  const params = url.searchParams;
+  params.append('q', keywords.value);
+  params.append('condition', '1'); // baru
+  params.append(
+    'fcity',
+    '144,146,150,151,167,168,171,174,175,176,177,178,179,463'
+  ); // jabodetabek
+  params.append('preorder', 'false');
+  params.append('shop_tier', '2'); // official store
+  params.append('ob', '3'); // termurah
 
-const count = ref(0)
+  return url.href;
+});
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div class="h-screen flex justify-center items-center">
+    <div class="">
+      <h1 class="w-full text-center">cari barang di tokped</h1>
+      <div class="flex mt-4">
+        <input
+          type="text"
+          name="keywords"
+          id="keywords"
+          class="border-zinc-700 border rounded-l px-2 py-1"
+          v-model="keywords"
+        />
+        <a
+          :href="tokpedURL"
+          class="border-zinc-700 border rounded-r bg-zinc-700 px-2 py-1 text-white"
+          target="_blank"
+        >
+          open
+        </a>
+      </div>
+    </div>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
