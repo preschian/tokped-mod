@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove ADS Tokopedia
 // @namespace    https://github.com/preschian
-// @version      0.1
+// @version      0.2
 // @description  remove topads in tokopedia search results page
 // @license      MIT
 // @author       Preschian F.
@@ -16,17 +16,26 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
+	"use strict";
 
-  function removeAds() {
-    const ads = document.querySelectorAll('[data-testid="divSRPTopadsIcon"]');
+	function removeAds() {
+		var spanTags = document.getElementsByTagName("span");
+		var searchText = "Ad";
+		var matchingSpans = [];
 
-    ads.forEach((elm) => {
-      elm.closest('[data-testid="divProductWrapper"]').remove();
-    });
+		for (const span of spanTags) {
+			if (span.textContent.includes(searchText)) {
+				matchingSpans.push(span);
+			}
+		}
 
-    setTimeout(removeAds, 250);
-  }
+		matchingSpans.forEach((elm) => {
+			elm.closest('[data-theme="default"]').parentElement.remove();
+		});
 
-  removeAds();
+		setTimeout(removeAds, 250);
+	}
+
+	removeAds();
 })();
+
