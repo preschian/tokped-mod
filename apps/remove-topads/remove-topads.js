@@ -5,8 +5,8 @@
 // @description  remove topads in tokopedia search results page
 // @license      MIT
 // @author       Preschian F.
-// @match        https://tokopedia.com/*
-// @match        https://www.tokopedia.com/*
+// @match        https://tokopedia.com/search*
+// @match        https://www.tokopedia.com/search*
 // @run-at       document-end
 // @icon         https://ecs7.tokopedia.net/assets-tokopedia-lite/prod/icon144.png
 // @grant        none
