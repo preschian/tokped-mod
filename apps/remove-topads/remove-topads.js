@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove ADS Tokopedia
 // @namespace    https://github.com/preschian
-// @version      0.2
+// @version      0.3
 // @description  remove topads in tokopedia search results page
 // @license      MIT
 // @author       Preschian F.
@@ -30,12 +30,18 @@
 		}
 
 		matchingSpans.forEach((elm) => {
-			elm.closest('[data-theme="default"]').parentElement.remove();
-		});
+			const closestDefault = elm.closest('[data-theme="default"]');
 
-		setTimeout(removeAds, 250);
+			if (closestDefault && closestDefault.tagName.toLowerCase() === 'a') {
+				closestDefault.parentElement.remove();
+			}
+		});
 	}
 
+	// Initial call to remove ads
 	removeAds();
+
+	// Add scroll event listener
+	window.addEventListener('scroll', removeAds);
 })();
 
